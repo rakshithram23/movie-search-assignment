@@ -23,13 +23,13 @@ The project implements a semantic search engine that can find movies based on na
 ### Installation
 
 1. **Clone the repository:**
-   
+   ```bash
    git clone https://github.com/your-username/movie-search-assignment.git
    cd movie-search-assignment
-   
+   ```
 
 2. **Create and activate virtual environment:**
-
+   ```bash
    # Create virtual environment
    python -m venv venv
    
@@ -38,12 +38,12 @@ The project implements a semantic search engine that can find movies based on na
    venv\Scripts\activate
    # On macOS/Linux:
    source venv/bin/activate
-   
+   ```
 
 3. **Install dependencies:**
-
+   ```bash
    pip install -r requirements.txt
-   
+   ```
 
 4. **Dataset:**
    - The `movies.csv` file should be in the root directory
@@ -53,25 +53,25 @@ The project implements a semantic search engine that can find movies based on na
 
 ### Basic Usage
 
-
+```python
 from movie_search import search_movies
 
 # Search for movies
 results = search_movies('spy thriller in Paris', top_n=5)
 print(results)
-
+```
 
 ### Run the Demo
 
-
+```bash
 python movie_search.py
-
+```
 
 This will run a demonstration with several example queries including the required test case: `'spy thriller in Paris'`.
 
 ### Example Output
 
-
+```
 Movie Semantic Search Engine - Assignment 1
 ==================================================
 Searching for: 'spy thriller in Paris'
@@ -96,7 +96,7 @@ Top 3 movies matching 'spy thriller in Paris':
 3. Action Flick
    Similarity Score: 0.2568
    Plot: A high-octane chase through New York with explosions.
-
+```
 
 ## Testing
 
@@ -109,14 +109,14 @@ The project includes comprehensive unit tests that verify:
 
 ### Run Tests
 
-
+```bash
 # Run all tests with verbose output
 python -m unittest tests/test_movie_search.py -v
-
+```
 
 ### Expected Test Output
 
-
+```
 test_search_movies_output_format (tests.test_movie_search.TestMovieSearch) ... ok
 test_search_movies_relevance (tests.test_movie_search.TestMovieSearch) ... ok  
 test_search_movies_similarity_range (tests.test_movie_search.TestMovieSearch) ... ok
@@ -126,11 +126,11 @@ test_search_movies_top_n (tests.test_movie_search.TestMovieSearch) ... ok
 Ran 4 tests in 8.050s
 
 OK
-
+```
 
 ## Project Structure
 
-
+```
 movie-search-assignment/
 ├── movie_search.py           # Main implementation
 ├── tests/
@@ -139,6 +139,7 @@ movie-search-assignment/
 ├── requirements.txt         # Python dependencies
 ├── README.md               # This file
 └── .gitignore              # Git ignore rules
+```
 
 ## Implementation Details
 
@@ -161,23 +162,15 @@ The main function `search_movies(query, top_n=5)` performs the following steps:
 - **Robustness**: Handles NaN values in plots and ensures top_n doesn't exceed available movies
 
 ## Dependencies
+
+```txt
 sentence-transformers
 pandas
 scikit-learn
 numpy
 torch
+```
 
-
-## Assignment Requirements Met
-
-✅ **Install and import libraries**: All required libraries properly imported and used  
-✅ **Load movies.csv**: Dataset loaded into pandas DataFrame with error handling  
-✅ **Create embeddings**: Uses all-MiniLM-L6-v2 model as specified  
-✅ **Implement search_movies()**: Function returns DataFrame with correct columns (`title`, `plot`, `similarity`) and top_n results  
-✅ **Test with required query**: Successfully tested with 'spy thriller in Paris'  
-✅ **Unit tests**: All 4 tests pass with proper validation  
-✅ **Code quality**: Clean, commented, and well-documented code with proper error handling  
-✅ **Documentation**: Comprehensive README with setup and usage instructions  
 
 ## Troubleshooting
 
@@ -199,10 +192,10 @@ If you encounter issues:
 ## Test Results
 
 All unit tests pass successfully:
-- **Output format test**: ✅ Returns DataFrame with correct columns
-- **Top-N parameter test**: ✅ Returns exactly the requested number of results  
-- **Similarity range test**: ✅ All similarity scores are between 0 and 1
-- **Query relevance test**: ✅ Results are semantically relevant to the search query
+- **Output format test**: Returns DataFrame with correct columns
+- **Top-N parameter test**:  Returns exactly the requested number of results  
+- **Similarity range test**:  All similarity scores are between 0 and 1
+- **Query relevance test**:  Results are semantically relevant to the search query
 
 ## Author
 
